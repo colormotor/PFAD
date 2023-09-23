@@ -1,0 +1,11 @@
+.DS_Store
+.idea
+*.log
+tmp/
+
+Makefile
+of.entitlements
+config.make
+*.plist
+*.xcodeproj
+*.xcconfig
