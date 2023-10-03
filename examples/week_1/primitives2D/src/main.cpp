@@ -1,33 +1,25 @@
 #include "ofMain.h"
 #include "ofApp.h"
 
+// #define SINGLEBUFFER
+#define APP_WIDTH 640
+#define APP_HEIGHT 480
+
 //========================================================================
 int main( ){
+#ifdef SINGLEBUFFER
+	ofGLFWWindowSettings settings;
+	settings.doubleBuffering = false;
+	settings.setSize(APP_WIDTH, APP_HEIGHT);
+	settings.windowMode = OF_WINDOW;
 
-//	ofSetupOpenGL(1024,768, OF_WINDOW);			// <-------- setup the GL context
-//
-//  ofGLFWWindowSettings settings;
-//    settings.doubleBuffering = false;
-//    settings.setSize(640, 480);
-//    settings.windowMode = OF_WINDOW;
-//
-//    auto mainWindow = ofCreateWindow(settings);
-//    auto mainApp = make_shared<ofApp>();
-    
-  ofGLFWWindowSettings settings;
-  settings.doubleBuffering = false;
-  settings.setSize(640, 480);
-  settings.windowMode = OF_WINDOW;
-      
-  auto mainWindow = ofCreateWindow(settings);
-  auto mainApp = make_shared<ofApp>();
+	auto mainWindow = ofCreateWindow(settings);
+	auto mainApp = make_shared<ofApp>();
 
-  ofRunApp(mainWindow, mainApp);
-  ofRunMainLoop();
-  
-	// this kicks off the running of my app
-	// can be OF_WINDOW or OF_FULLSCREEN
-	// pass in width and height too:
+	ofRunApp(mainWindow, mainApp);
+	ofRunMainLoop();
+#else
+	ofSetupOpenGL(APP_WIDTH, APP_HEIGHT, OF_WINDOW);			// <-------- setup the GL context
 	ofRunApp( new ofApp());
-
+#endif
 }
