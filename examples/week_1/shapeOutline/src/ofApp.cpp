@@ -12,7 +12,6 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-  ofTranslate(10, 10); //ofGetWidth(), ofGetHeight());
   ofBackground(0);
   ofFill();               // explain result when I remove this line
   ofSetColor(255,0,0);
