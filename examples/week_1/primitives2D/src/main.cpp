@@ -1,7 +1,10 @@
 #include "ofMain.h"
 #include "ofApp.h"
 
+// This is for week 2.
+// We will use this as a hack to have "Persistent drawing" on both Mac and Windows
 // #define SINGLEBUFFER
+
 #define APP_WIDTH 640
 #define APP_HEIGHT 480
 
