@@ -1,0 +1,103 @@
+% Created 2023-10-10 Tue 23:30
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Daniel Berio}
+\date{\today}
+\title{Quick reference}
+\hypersetup{
+ pdfauthor={Daniel Berio},
+ pdftitle={Quick reference},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.2 (Org mode 9.6.1)}, 
+ pdflang={English}}
+\usepackage{biblatex}
+\addbibresource{~/Dropbox/orgroam/zotero-biblio.bib}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Variables}
+\label{sec:org4b12230}
+
+
+\section{C/C++ operators}
+\label{sec:org2b4507b}
+Operators are symbols that represents a specific mathematical or logical operation.
+
+\subsection{Assignment}
+\label{sec:org65c2459}
+In C++ the \texttt{=} symbol is thet operator that assigns one value to another. For example
+\begin{verbatim}
+a = 10;
+\end{verbatim}
+assigns the value \texttt{10} to the variable \texttt{a} (assuming it has been previously declared).
+
+\subsection{Arithmetic operators}
+\label{sec:org1f24b34}
+\begin{center}
+\begin{tabular}{lll}
+Operator & Result & Notes\\[0pt]
+\hline
+\texttt{+} & Addition & \\[0pt]
+\texttt{-} & Subtraction & \\[0pt]
+\texttt{*} & Multiplication & \\[0pt]
+\texttt{/} & Division & \\[0pt]
+\texttt{\%} & Modulo (remainder of division) & Applies only to integers\\[0pt]
+\hline
+\end{tabular}
+\end{center}
+
+Arithmetic operators have different \emph{precedence}, with multiplication, division and modulo (\texttt{*}, \texttt{/} and \texttt{\%}) being applied before addition and subtraction ( \texttt{+} and \texttt{-} ). We can use parentheses to force a desired precedence. For example \texttt{a+b*c} will not be equal to \texttt{(a+b)*c}, where in the first \texttt{a} is added to \texttt{b*c}, while in the second \texttt{(a + b)} is multiplied by \texttt{c}. That is similar to the way we would express this with mathematical notation (which makes it somewhat more obvious), where the first would be \(a + bc\) and the second \((a + b)c\).
+
+\subsection{Relational operators}
+\label{sec:orga94d1d8}
+Relational (or comparison) operators are used to test the relation between two variables. They always result in a boolean (\texttt{bool} type) value being either \texttt{true} or \texttt{false}
+\begin{center}
+\begin{tabular}{lll}
+Operator & Relation & Notes\\[0pt]
+\texttt{<} & Less than & E.g. \texttt{5 < 10} is \texttt{true}\\[0pt]
+\texttt{>} & Greater than & E.g. \texttt{5 > 10} ia \texttt{false}\\[0pt]
+\texttt{<=} & Less or equal to & E.g. \texttt{10 <= 10} is \texttt{true}\\[0pt]
+\texttt{>=} & Greater or equal to & E.g. \texttt{12 >= -10} is \texttt{true}\\[0pt]
+\texttt{==} & Equal & E.g. \texttt{a==b} is \texttt{true} if \texttt{a} and \texttt{b} have the same value\\[0pt]
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Logical operators}
+\label{sec:org286fbb6}
+Logical  operators are used to compose expressions made of boolean (\texttt{true} or \texttt{false}) values. C++ gives three logical operators \texttt{\&\&} (AND), \texttt{||} (OR) and \texttt{!} (NOT). Similarly to English, the first two are always applied to two values, one on the left and one on the right. E.g \texttt{a \&\& b} will be \texttt{true} only if both \texttt{a} and \texttt{b} are true, while \texttt{a || b} will be \texttt{true} if either of \texttt{a} or \texttt{b} is \texttt{true}. Instead, the NOT (\texttt{!}) operators applies to the value on its right. E.g. \texttt{!true} is \texttt{false}, which with the relational operators can be expressed as \texttt{!true==false}. We can use relational operators together with logical operator as a powerful way to test different conditions, e.g. to store whether a variable \texttt{v} is betwen two numbers \texttt{a} and \texttt{b} we could do
+\begin{verbatim}
+bool isBetween = (v >= a) && (v <= b);
+\end{verbatim}
+This can also be written in a perhaps more concise (but cryptic?) way as:
+\begin{verbatim}
+bool isBetween = a <= v <= b;
+\end{verbatim}
+Together with an \texttt{if} statement we can use this kind of expression to perform some actions if \texttt{v} this condition is \textbf{not} true:
+\begin{verbatim}
+if (!((v >= a) && (v <= b))) {
+  // Do some action
+}
+\end{verbatim}
+Note that we wrapped the whole expression in parentheses in order to apply the NOT operator to the result. This results in many parentheses and the result would be more readable if we use the \texttt{isBetween} variable and write
+\begin{verbatim}
+if (!isBetween) {
+  // Do stuff
+}
+\end{verbatim}
+\end{document}
