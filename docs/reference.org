@@ -1,7 +1,12 @@
 #+title: Quick reference
 
 * Variables
-
+| Type    | Description                                                                          | Examples                  |
+|---------+--------------------------------------------------------------------------------------+---------------------------|
+| ~int~   | An *integer*, a whole number without a fractional part                               | ~0~, ~-132~, ~25~         |
+| ~float~ | A *floating point number*, a number with a fractional part                           | ~0.0~, ~-100.32~, ~43.2f~ |
+| ~char~  | An (ASCII) character, usually described by single character bounded by single quotes | '                         |
+|         |                                                                                      |                           |
 
 * C/C++ operators
 Operators are symbols that represents a specific mathematical or logical operation.
@@ -27,13 +32,15 @@ Arithmetic operators have different /precedence/, with multiplication, division 
 
 ** Relational operators
 Relational (or comparison) operators are used to test the relation between two variables. They always result in a boolean (~bool~ type) value being either ~true~ or ~false~
-| Operator | Relation            | Notes                                                    |
-| ~<~      | Less than           | E.g. ~5 < 10~ is ~true~                                  |
-| ~>~      | Greater than        | E.g. ~5 > 10~ ia ~false~                                 |
-| ~<=~     | Less or equal to    | E.g. ~10 <= 10~ is ~true~                                |
-| ~>=~     | Greater or equal to | E.g. ~12 >= -10~ is ~true~                               |
-| ~==~     | Equal               | E.g. ~a==b~ is ~true~ if ~a~ and ~b~ have the same value |
-|----------+---------------------+----------------------------------------------------------|
+
+| Operator | Relation            | Notes                                                      |
+| ~<~      | Less than           | E.g. ~5 < 10~ is ~true~                                    |
+| ~>~      | Greater than        | E.g. ~5 > 10~ ia ~false~                                   |
+| ~<=~     | Less or equal to    | E.g. ~10 <= 10~ is ~true~                                  |
+| ~>=~     | Greater or equal to | E.g. ~12 >= -10~ is ~true~                                 |
+| ~==~     | Equal               | E.g. ~a == b~ is ~true~ if ~a~ and ~b~ have the same value |
+| ~!=~     | Not equal           | E.g. ~a != b~ is ~false~ if the above is ~true~            |
+|----------+---------------------+------------------------------------------------------------|
 
 ** Logical operators
 Logical  operators are used to compose expressions made of boolean (~true~ or ~false~) values. C++ gives three logical operators ~&&~ (AND), ~||~ (OR) and ~!~ (NOT). Similarly to English, the first two are always applied to two values, one on the left and one on the right. E.g ~a && b~ will be ~true~ only if both ~a~ and ~b~ are true, while ~a || b~ will be ~true~ if either of ~a~ or ~b~ is ~true~. Instead, the NOT (~!~) operators applies to the value on its right. E.g. ~!true~ is ~false~, which with the relational operators can be expressed as ~!true==false~. We can use relational operators together with logical operator as a powerful way to test different conditions, e.g. to store whether a variable ~v~ is betwen two numbers ~a~ and ~b~ we could do
