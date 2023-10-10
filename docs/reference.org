@@ -1,12 +1,25 @@
 #+title: Quick reference
 
 * Variables
-| Type    | Description                                                                          | Examples                  |
-|---------+--------------------------------------------------------------------------------------+---------------------------|
-| ~int~   | An *integer*, a whole number without a fractional part                               | ~0~, ~-132~, ~25~         |
-| ~float~ | A *floating point number*, a number with a fractional part                           | ~0.0~, ~-100.32~, ~43.2f~ |
-| ~char~  | An (ASCII) character, usually described by single character bounded by single quotes | '                         |
-|         |                                                                                      |                           |
+** Types
+A basic C++ types:
+| Type     | Description                                                                                   | Examples                       |
+|----------+-----------------------------------------------------------------------------------------------+--------------------------------|
+| ~int~    | An *integer*, a whole number without a fractional part                                        | ~0~, ~-132~, ~25~              |
+| ~float~  | A *floating point number*, a number with a fractional part                                    | ~0.0~, ~-100.32~, ~43.2f~      |
+| ~char~   | An (ASCII) character, usually described by single character bounded by *single* quotes        | ~'a'~, ~'7'~, ~'$`~, ~\n~, ~7~ |
+| ~bool~   | A Boolean value (either true or false)                                                        | ~true~ or ~false~              |
+| ~string~ | Text, a C++ string of characters, bounded by *double* quotes                                  | ~"Hello, world!"~              |
+| ~void~   | A special type used to indicate "nothing", e.g. used to indicate no return value for function | ~void drawCircle()~            |
+|----------+-----------------------------------------------------------------------------------------------+--------------------------------|
+This list is in no way exhaustive, for example ~float~ and ~int~ are not the only floating point and integer types. On most computers these usually have a precision of ~32~ bits (~4~ bytes) and this may not provide sufficient precision for certain types of operations.
+
+| Type     | Description                                                                                   | Examples                  |
+|----------+-----------------------------------------------------------------------------------------------+---------------------------|
+| ~long~   | A 64 bit *integer*                                                                            | ~0~, ~-132~, ~25~         |
+| ~double~ | A double precision (64 bit) *floating point number*, a number with a fractional part          | ~0.0~, ~-100.32~, ~43.2f~ |
+|----------+-----------------------------------------------------------------------------------------------+---------------------------|
+You may also come across integer types with an additional ~unsigned~ /type qualifier/. This means that the variable can only assume positive values. This can be important for example when dealing at a low level with the pixels of an image.
 
 * C/C++ operators
 Operators are symbols that represents a specific mathematical or logical operation.
