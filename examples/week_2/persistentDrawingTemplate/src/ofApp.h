@@ -2,10 +2,9 @@
 
 #include "ofMain.h"
 
-// We will use this flag to specify if we want
-// an animaton, or if we want each frame to incrementally
-// draw on the window
-#define AUTO_CLEAR false // Set this to 0 (or false) to not clear each frame
+// Set this flag to false to allow
+// persistent drawing with ofSetBackgroundAuto without flickering
+#define AUTO_CLEAR false
 
 // This is a C++ definition of a class.
 // OpenFrameworks uses this to define your "App"

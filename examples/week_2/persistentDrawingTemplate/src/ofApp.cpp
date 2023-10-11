@@ -1,10 +1,12 @@
 #include "ofApp.h"
 
+float t = 0.0;
+
 //--------------------------------------------------------------
 void ofApp::setup(){
   ofBackground(0, 0, 0); // Change background color here
-  // This is necessary to not automatically clear the window
-  ofSetBackgroundAuto(AUTO_CLEAR);
+  // This tells OF to not automatically clear the window
+  ofSetBackgroundAuto(false);
 }
 
 //--------------------------------------------------------------
@@ -13,6 +15,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+  if (ofGetMousePressed())
   ofFill();
   ofSetColor(255);
   ofDrawCircle(mouseX, mouseY, 10);

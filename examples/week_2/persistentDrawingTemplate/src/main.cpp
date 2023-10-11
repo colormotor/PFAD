@@ -3,21 +3,19 @@
 									 // so we can initialize OF and run the functionalities we
 									 // specified
 
-
-// Set your width and height here
-// we do this to use the values later
-#define APP_WIDTH    640
-#define APP_HEIGHT   480
-
 int main( ) {
+  // Change your window size here
+  int width = 640;
+  int height = 480;
+  // this will be passed into the intialization below
 #if AUTO_CLEAR
   // Your normal setup
-  ofSetupOpenGL(APP_WIDTH, APP_HEIGHT, OF_WINDOW);      // <-------- setup the GL context
+  ofSetupOpenGL(width, height, OF_WINDOW);      // <-------- setup the GL context
   ofRunApp( new ofApp());
 #else
 	ofGLFWWindowSettings settings;
 	settings.doubleBuffering = false;
-	settings.setSize(APP_WIDTH, APP_HEIGHT);
+	settings.setSize(width, height);
 	settings.windowMode = OF_WINDOW;
 
 	auto mainWindow = ofCreateWindow(settings);
