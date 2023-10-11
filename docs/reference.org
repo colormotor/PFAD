@@ -17,7 +17,7 @@ This list is in no way exhaustive, for example ~float~ and ~int~ are not the onl
 | Type     | Description                                                                                   | Examples                  |
 |----------+-----------------------------------------------------------------------------------------------+---------------------------|
 | ~long~   | A 64 bit *integer*                                                                            | ~0~, ~-132~, ~25~         |
-| ~double~ | A double precision (64 bit) *floating point number*, a number with a fractional part          | ~0.0~, ~-100.32~, ~43.2f~ |
+| ~double~ | A double precision (64 bit) *floating point number*, a number with a fractional part          | ~0.0~, ~-100.32~, ~43.2~  |
 |----------+-----------------------------------------------------------------------------------------------+---------------------------|
 You may also come across integer types with an additional ~unsigned~ /type qualifier/. This means that the variable can only assume positive values. This can be important for example when dealing at a low level with the pixels of an image.
 
