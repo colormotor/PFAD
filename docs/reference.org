@@ -7,7 +7,7 @@ A basic C++ types:
 |----------+-----------------------------------------------------------------------------------------------+--------------------------------|
 | ~int~    | An *integer*, a whole number without a fractional part                                        | ~0~, ~-132~, ~25~              |
 | ~float~  | A *floating point number*, a number with a fractional part                                    | ~0.0~, ~-100.32~, ~43.2f~      |
-| ~char~   | An (ASCII) character, usually described by single character bounded by *single* quotes        | ~'a'~, ~'7'~, ~'$`~, ~\n~, ~7~ |
+| ~char~   | An (ASCII) character, usually described by single character bounded by *single* quotes        | ~'a'~, ~'7'~, ~'$'~, ~\n~, ~7~ |
 | ~bool~   | A Boolean value (either true or false)                                                        | ~true~ or ~false~              |
 | ~string~ | Text, a C++ string of characters, bounded by *double* quotes. This is actually a "class"      | ~"Hello, world!"~              |
 | ~void~   | A special type used to indicate "nothing", e.g. used to indicate no return value for function | ~void drawCircle()~            |
