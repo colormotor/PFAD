@@ -1,0 +1,79 @@
+#+title: Quick reference
+
+# Variables
+## Types
+ basic C++ types:
+| Type                                                                                                                                             | Description                                                                                   | Examples                    |
+| ----------+-----------------------------------------------------------------------------------------------+------------------------------------- |                                                                                               |                             |
+| `int`                                                                                                                                            | An **integer**, a whole number without a fractional part                                      | `0`, `-132`, `25`           |
+| `float`                                                                                                                                          | A **floating point number**, a number with a fractional part                                  | `0.0`, `-100.32`, `43.2f`   |
+| `char`                                                                                                                                           | An (ASCII) character, usually described by single character bounded by **single** quotes      | `'a'`, `'7'`, `'\n'`, `'$'` |
+| `bool`                                                                                                                                           | A Boolean value (either true or false)                                                        | `true` or `false`           |
+| `string`                                                                                                                                         | Text, a C++ string of characters, bounded by **double** quotes. This is actually a "class"    | `"Hello, world!"`           |
+| `void`                                                                                                                                           | A special type used to indicate "nothing", e.g. used to indicate no return value for function | `void drawCircle()`         |
+| ----------+-----------------------------------------------------------------------------------------------+------------------------------------- |                                                                                               |                             |
+This list is in no way exhaustive, for example `float` and `int` are not the only floating point and integer types. On most computers these usually have a precision of `32` bits (`4` bytes) and this may not provide sufficient precision for certain types of operations.
+
+| Type     | Description                                                                                   | Examples                  |
+|----------+-----------------------------------------------------------------------------------------------+---------------------------|
+| `long`   | A 64 bit *integer*                                                                            | `0`, `-132`, `25`         |
+| `double` | A double precision (64 bit) *floating point number*, a number with a fractional part          | `0.0`, `-100.32`, `43.2`  |
+|----------+-----------------------------------------------------------------------------------------------+---------------------------|
+You may also come across integer types with an additional `unsigned` /type qualifier/. This means that the variable can only assume positive values. This can be important for example when dealing at a low level with the pixels of an image.
+
+The `string` type above is actually a custom defined C++ class, which is made available as part of what is known as the [[https://en.wikipedia.org/wiki/C%2B%2B_Standard_Library][Standard library]]. C++ makes it easy to define custom types as "classes" and OpenFrameworks provides a number of these that we will look at during the module. As a matter of fact, an example of a class definition that is
+* C/C++ operators
+Operators are symbols that represents a specific mathematical or logical operation.
+
+** Assignment
+In C++ the `=` symbol is thet operator that assigns one value to another. For example
+#+begin_src C
+a = 10;
+#+end_src
+assigns the value `10` to the variable `a` (assuming it has been previously declared).
+
+** Arithmetic operators
+| Operator | Result                         | Notes                    |
+|----------+--------------------------------+--------------------------|
+| `+`      | Addition                       |                          |
+| `-`      | Subtraction                    |                          |
+| `*`      | Multiplication                 |                          |
+| `/`      | Division                       |                          |
+| `%`      | Modulo (remainder of division) | Applies only to integers |
+|----------+--------------------------------+--------------------------|
+
+Arithmetic operators have different /precedence/, with multiplication, division and modulo (`*`, `/` and `%`) being applied before addition and subtraction ( `+` and `-` ). We can use parentheses to force a desired precedence. For example `a+b*c` will not be equal to `(a+b)*c`, where in the first `a` is added to `b*c`, while in the second `(a + b)` is multiplied by `c`. That is similar to the way we would express this with mathematical notation (which makes it somewhat more obvious), where the first would be $a + bc$ and the second $(a + b)c$.
+
+** Relational operators
+Relational (or comparison) operators are used to test the relation between two variables. They always result in a boolean (`bool` type) value being either `true` or `false`
+
+| Operator | Relation            | Notes                                                      |
+| `<`      | Less than           | E.g. `5 < 10` is `true`                                    |
+| `>`      | Greater than        | E.g. `5 > 10` ia `false`                                   |
+| `<=`     | Less or equal to    | E.g. `10 <= 10` is `true`                                  |
+| `>=`     | Greater or equal to | E.g. `12 >= -10` is `true`                                 |
+| `==`     | Equal               | E.g. `a == b` is `true` if `a` and `b` have the same value |
+| `!=`     | Not equal           | E.g. `a != b` is `false` if the above is `true`            |
+|----------+---------------------+------------------------------------------------------------|
+
+** Logical operators
+Logical  operators are used to compose expressions made of boolean (`true` or `false`) values. C++ gives three logical operators `&&` (AND), `||` (OR) and `!` (NOT). Similarly to English, the first two are always applied to two values, one on the left and one on the right. E.g `a && b` will be `true` only if both `a` and `b` are true, while `a || b` will be `true` if either of `a` or `b` is `true`. Instead, the NOT (`!`) operators applies to the value on its right. E.g. `!true` is `false`, which with the relational operators can be expressed as `!true==false`. We can use relational operators together with logical operator as a powerful way to test different conditions, e.g. to store whether a variable `v` is betwen two numbers `a` and `b` we could do
+#+begin_src C
+bool isBetween = (v >= a) && (v <= b);
+#+end_src
+This can also be written in a perhaps more concise (but cryptic?) way as:
+#+begin_src C
+bool isBetween = a <= v <= b;
+#+end_src
+Together with an `if` statement we can use this kind of expression to perform some actions if `v` this condition is *not* true:
+#+begin_src C
+if (!((v >= a) && (v <= b))) {
+  // Do some action
+}
+#+end_src
+Note that we wrapped the whole expression in parentheses in order to apply the NOT operator to the result. This results in many parentheses and the result would be more readable if we use the `isBetween` variable and write
+#+begin_src C
+if (!isBetween) {
+  // Do stuff
+}
+#+end_src
