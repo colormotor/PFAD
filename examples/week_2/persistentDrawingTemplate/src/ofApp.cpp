@@ -15,7 +15,6 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-  if (ofGetMousePressed())
   ofFill();
   ofSetColor(255);
   ofDrawCircle(mouseX, mouseY, 10);
