@@ -55,7 +55,7 @@ Relational (or comparison) operators are used to test the relation between two v
 | `==`     | Equal               | E.g. `a == b` is `true` if `a` and `b` have the same value |
 | `!=`     | Not equal           | E.g. `a != b` is `false` if the above is `true`            |
 
-### gg Logical operators
+### Logical operators
 Logical  operators are used to compose expressions made of boolean (`true` or `false`) values. C++ gives three logical operators `&&` (AND), `||` (OR) and `!` (NOT). Similarly to English, the first two are always applied to two values, one on the left and one on the right. E.g `a && b` will be `true` only if both `a` and `b` are true, while `a || b` will be `true` if either of `a` or `b` is `true`. Instead, the NOT (`!`) operators applies to the value on its right. E.g. `!true` is `false`, which with the relational operators can be expressed as `!true==false`. We can use relational operators together with logical operator as a powerful way to test different conditions, e.g. to store whether a variable `v` is betwen two numbers `a` and `b` we could do
 ```C
 bool isBetween = (v >= a) && (v <= b);
