@@ -1,12 +1,12 @@
 #include "ofApp.h"
 
-float t = 0.0;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
   ofBackground(0, 0, 0); // Change background color here
   // This tells OF to not automatically clear the window
   ofSetBackgroundAuto(false);
+	ofSetFrameRate(60); // This is important to keep framerate fixed
 }
 
 //--------------------------------------------------------------
@@ -16,7 +16,7 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
   ofFill();
-  ofSetColor(255);
+  ofSetColor(255, 150);
   ofDrawCircle(mouseX, mouseY, 10);
 }
 
