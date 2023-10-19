@@ -20,20 +20,30 @@ void ofApp::draw(){
     ofBeginSaveScreenAsSVG("mySvg.svg");
   }
 
-  ofTranslate(0, ofGetHeight()/2);
   
   ofNoFill();
   ofSetColor(255, 128);
   
   int numCircles = 200;
+  
+  // Mapping mouse to sine wave frequency for radius
   float freqRadius = ofMap(mouseX, 0, ofGetWidth(), 0.5, 10);
+  // Mapping mouse to sine wave frequency for Y position
   float freqY = ofMap(mouseX, 0, ofGetWidth(), 0.5, 10);
   
+  // Translate to middle vertically, so -1, 1 of sine creates a symmetric offset
+  ofTranslate(0, ofGetHeight()/2);
+  
   for (int i = 0; i < numCircles; i++) {
-    float y = 100*sin(0.01*i*freqY + phase);
+    // map index to a horizontal point between left and right of window
     float x = ofMap(i, 0, numCircles-1, 0, ofGetWidth());
+    // Y oscillator
+    float y = 100*sin(0.01*i*freqY + phase);
+    // radius oscillator
     float r = sin(0.01*i*freqRadius);
+    // we remap this to a positive value
     r = ofMap(r, -1, 1, 10, 100);
+  
     ofDrawCircle(x, y, r);
   }
   
