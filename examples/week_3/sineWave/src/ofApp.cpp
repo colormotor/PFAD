@@ -29,7 +29,7 @@ void ofApp::draw(){
   // Mapping mouse to sine wave frequency for radius
   float freqRadius = ofMap(mouseX, 0, ofGetWidth(), 0.5, 10);
   // Mapping mouse to sine wave frequency for Y position
-  float freqY = ofMap(mouseX, 0, ofGetWidth(), 0.5, 10);
+  float freqY = ofMap(mouseY, 0, ofGetHeight(), 0.5, 10);
   
   // Translate to middle vertically, so -1, 1 of sine creates a symmetric offset
   ofTranslate(0, ofGetHeight()/2);
