@@ -32,8 +32,7 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-  if (key == ' ') { // If user presses space, we will save in the next
-                    // call to draw. Use OF_KEY_RETURN for enter
+  if (key == ' ') {
     saving = true;
   }
 }
