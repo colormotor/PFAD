@@ -3,7 +3,7 @@
 									 // so we can initialize OF and run the functionalities we
 									 // specified
 
-bool autoClear = false;
+bool autoClear = true;
 
 int main( ) {
   // Change your window size here
