@@ -1,23 +1,17 @@
 #include "ofMain.h"
-#include "ofApp.h" // includes the whole contents of ofApp.h into this file
-									 // so we can initialize OF and run the functionalities we
-									 // specified
+#include "ofApp.h"
 
-bool autoClear = true;
+//========================================================================
+int main( ){
 
-int main( ) {
-  // Change your window size here
-  int width = 640;
-  int height = 480;
-  
-  ofGLFWWindowSettings settings;
-  settings.doubleBuffering = autoClear;
-  settings.setSize(width, height);
-  settings.windowMode = OF_WINDOW;
-  
-  auto mainWindow = ofCreateWindow(settings);
-  auto mainApp = make_shared<ofApp>();
-  mainWindow->setWindowTitle("My app");
-  ofRunApp(mainWindow, mainApp);//new ofApp());
+  //Use ofGLFWWindowSettings for more options like multi-monitor fullscreen
+  ofGLWindowSettings settings;
+  settings.setSize(1024, 768);
+  settings.windowMode = OF_WINDOW; //can also be OF_FULLSCREEN
+
+  auto window = ofCreateWindow(settings);
+
+  ofRunApp(window, make_shared<ofApp>());
   ofRunMainLoop();
+
 }
