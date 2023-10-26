@@ -16,6 +16,17 @@ void ofApp::update(){
 
 }
 
+void drawLinear(vec2 points[], bool closed) {
+  ofBeginShape();
+  for (int i = 0; i < numKeypoints; i++) {
+    ofVertex(points[i]);
+  }
+  if (closed)
+    ofEndShape(OF_CLOSE);
+  else
+    ofEndShape();
+}
+
 void drawOpen(vec2 points[]) {
   ofBeginShape();
   ofCurveVertex(points[0]);
@@ -42,7 +53,7 @@ void drawClosed(vec2 points[]) {
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-  ofBackground(0);
+  ofBackground(255);
   
   // random seed
   ofSetRandomSeed(seed);
@@ -67,7 +78,7 @@ void ofApp::draw(){
     }
   } else {
     // Draw horizontally spaced points
-    float xSpacing = ofGetWidth() / (numKeypoints-1);
+    float xSpacing = (float)ofGetWidth() / (numKeypoints-1);
     float amp = ofGetHeight()/4;
     float y = ofGetHeight()/2;
     
@@ -77,10 +88,16 @@ void ofApp::draw(){
     }
   }
   
+  // Show linear path
+  ofNoFill();
+  ofSetLineWidth(1.0);
+  ofSetColor(255, 0, 0);
+  drawLinear(points, closed);
+  
   // Draw interpolation curve
   ofNoFill();
-  ofSetLineWidth(2.5);
-  ofSetColor(255);
+  ofSetLineWidth(3.5);
+  ofSetColor(0);
   
   if (closed)
     drawClosed(points);
