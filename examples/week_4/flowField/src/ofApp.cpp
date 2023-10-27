@@ -24,6 +24,8 @@ float noise(float x, float y, float z) {
   return n/normalization;
 }
 
+
+
 // Direction going outwards from center (assuming origin at center)
 vec2 outerFlow(float x, float y) {
   return normalize(vec2(x, y));
@@ -50,8 +52,9 @@ vec2 noiseFlow(float x, float y) {
 // Use this to combine different flow fields
 vec2 flowAt(float x, float y) {
   return noiseFlow(x, y);
+  // return outerFlow(x, y);
   //  Use below as example for weighted sum of different fields
-  //  return noiseFlow(x, y)*0.5 + circularFlow(x, y) + outerFlow(x, y)*0.1;
+//  return noiseFlow(x, y)*0.5 + circularFlow(x, y) + outerFlow(x, y)*0.1;
 }
 
 
@@ -69,6 +72,7 @@ void ofApp::update(){
 void ofApp::draw(){
   int width = ofGetWidth();
   int height = ofGetHeight();
+  flowAngle = ofMap(mouseX, 0, ofGetWidth(), 0, TWO_PI, true);
   
   ofBackground(0);
   
@@ -82,8 +86,6 @@ void ofApp::draw(){
   ofSetColor(0, 190, 255, 150);
   ofSetLineWidth(2);
   int step = 10;
-  
-  flowAngle = ofMap(mouseX, 0, ofGetWidth(), 0, TWO_PI, true);
   
   for (float y = -height/2; y < height/2; y+=step) {
     for (float x = -width/2; x < width/2; x+=step) {
