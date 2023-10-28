@@ -1,1 +1,1 @@
-# Programming for Artists and Designer
+# Programming for Artists and Designers
