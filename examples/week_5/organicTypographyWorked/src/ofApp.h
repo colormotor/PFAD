@@ -31,5 +31,6 @@ class ofApp : public ofBaseApp{
   	vector <vec2> stringPoints;
 		string sentence;
 		ofTrueTypeFont font;
+    float t;
   
 };

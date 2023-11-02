@@ -4,6 +4,7 @@
 void ofApp::setup(){
   showTurtle = true;
   ofSetRectMode(OF_RECTMODE_CENTER);
+  ofSetCircleResolution(100);
 }
 
 //--------------------------------------------------------------
@@ -201,15 +202,15 @@ void ofApp::turtleForward(float distance) {
 
 void ofApp::turtleRight(float degrees) {
   ofRotateDeg(degrees);
-  drawTurtle();
+  // drawTurtle();
 }
 
 void ofApp::turtleLeft(float degrees) {
   ofRotateDeg(-degrees);
-  drawTurtle();
+  // drawTurtle();
 }
 
 void ofApp::turtleScale(float scale) {
   ofScale(scale);
-  drawTurtle();
+  // drawTurtle();
 }

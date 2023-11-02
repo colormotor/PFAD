@@ -29,28 +29,26 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    
     canvasFbo.begin();
-    
     ofPushMatrix();
+    ofScale(fboScale);
     
-    ofTranslate(mouseX*fboScale,mouseY*fboScale);
-
+    // Drawing code starts here
+    ofTranslate(mouseX, mouseY);
     ofSetColor(0);
-    ofDrawCircle(0,0,50);
-    
+    ofDrawCircle(0,0,10);
+    // Drawing code ends here
+  
     ofPopMatrix();
-    
     canvasFbo.end();
-    
 }
+
 
 //--------------------------------------------------------------
 void ofApp::draw(){
     //set white so the canvas fbo color isn't changed.
     ofSetColor(255);
     canvasFbo.draw(0,0,ofGetWidth(),ofGetHeight());
-
 }
 
 

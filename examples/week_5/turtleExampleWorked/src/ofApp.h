@@ -37,6 +37,7 @@ class ofApp : public ofBaseApp{
     void turtleScale(float scale);
     
     // internal
+    void turtleTriangle(float size);
     void drawTurtleShape();
     void storeTurtlePos();
     void drawTurtle();

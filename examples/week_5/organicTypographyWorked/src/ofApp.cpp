@@ -10,6 +10,8 @@ void ofApp::setup(){
 
   sentence = "Goldsmiths";
   stringPoints = sampleStringPoints(sentence, 5.0);
+
+  t = 0.0;
 }
 
 //--------------------------------------------------------------
@@ -19,7 +21,30 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
   ofPushMatrix();
-  // Code goes here
+  // Set origin so the text is centered
+  ofTranslate(ofGetWidth()/2 - font.stringWidth(sentence)/2, ofGetHeight()/2 + font.stringHeight(sentence)/2);
+
+  float noiseSize = ofMap(mouseX, 0, ofGetWidth(), 0, 40);
+  
+  ofNoFill();
+  for (int i=0; i<stringPoints.size(); i++){
+    // Shifted point
+    float phase = t + 0.123*i;
+    vec2 offset = vec2(ofSignedNoise(phase, 0.0),
+                       ofSignedNoise(phase, 0.233))*noiseSize;
+    vec2 newPoint = stringPoints[i] + offset;
+    
+    // Varying radius
+    float pointSize = ofNoise(phase, 0.7232) * 16;
+    ofDrawCircle(newPoint, pointSize);
+    
+    // Interpolate color
+    ofColor clr1 = ofColor(ofColor::black);
+    ofColor clr2 = ofColor(ofColor::gray);
+    ofColor c = clr1.lerp(clr2, ofNoise(phase, 123.232));
+    ofSetColor(c);
+  }
+  t += 0.01;
   ofPopMatrix();
 }
 
