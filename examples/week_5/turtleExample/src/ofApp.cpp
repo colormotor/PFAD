@@ -17,35 +17,52 @@ void ofApp::drawTurtleShape(){
   /// This can be literally anything :)
   /// But keep in mind drawing around the origin (0, 0)
   // Draw x and y axes
-  float size = 40;
   ofNoFill();
-  ofSetColor(255, 0, 0);
-  ofDrawLine(0, 0, size, 0);
-  ofSetColor(0, 255, 0);
-  ofDrawLine(0, 0, 0, size);
-  
-  // Draw the turtle
-  size = 10;
-  ofFill();
-  ofSetColor(255); //, 0, 0, 90);
-  turtleTriangle(size);
-  ofNoFill();
-  ofSetLineWidth(3.0);
-  ofSetColor(0);
-  turtleTriangle(size);
+  ofSetColor(255, 128);
+  ofDrawCircle(0, 0, 70);
+//  float size = 40;
+//  ofNoFill();
+//  ofSetColor(255, 0, 0);
+//  ofDrawLine(0, 0, size, 0);
+//  ofSetColor(0, 255, 0);
+//  ofDrawLine(0, 0, 0, size);
+//
+//  // Draw the turtle
+//  size = 10;
+//  ofFill();
+//  ofSetColor(255); //, 0, 0, 90);
+//  turtleTriangle(size);
+//  ofNoFill();
+//  ofSetLineWidth(3.0);
+//  ofSetColor(0);
+//  turtleTriangle(size);
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
   // This code explicitly draws the turtle using OF transformations
+  ofNoFill();
+  ofSetColor(255, 90);
+  ofSetLineWidth(2.0);
+  
   turtleReset(ofGetWidth()/2, ofGetHeight()/2);
-  drawTurtle();
-  ofTranslate(100, 0);
-  drawTurtle();
-  ofRotateDeg(45);
-  drawTurtle();
-  ofTranslate(100, 0);
-  drawTurtle();
+  turtleForward(100);
+  turtleRight(45);
+  turtleForward(100);
+  turtlePenUp();
+  turtleForward(100);
+  turtlePenDown();
+  turtleRight(45);
+  turtleForward(90);
+  
+  // Explicit translations
+//  drawTurtle();
+//  ofTranslate(100, 0);
+//  drawTurtle();
+//  ofRotateDeg(45);
+//  drawTurtle();
+//  ofTranslate(100, 0);
+//  drawTurtle();
   // End demo code
   
   // This code uses the turtle functions with
@@ -55,10 +72,12 @@ void ofApp::draw(){
 //
 //  turtleReset(ofGetWidth()/2, ofGetHeight()/2);
 //  for (int i = 0; i < 100; i++) {
-//    turtleForward(100);
+//    turtleForward(100); //
 //    turtleRight(angle);
 //    turtleScale(0.9);
 //  }
+//
+//
   
   ofNoFill();
   ofSetColor(255, 90);
@@ -174,6 +193,7 @@ void ofApp::drawLastTurtlePath() {
   ofPushMatrix();
   ofLoadIdentityMatrix();
   ofNoFill();
+  
   ofBeginShape();
   for (int i = 0; i < positions.size(); i++)
     ofVertex(positions[i]);
@@ -213,4 +233,14 @@ void ofApp::turtleLeft(float degrees) {
 void ofApp::turtleScale(float scale) {
   ofScale(scale);
   // drawTurtle();
+}
+
+void ofApp::turtlePenUp() {
+  drawLastTurtlePath();
+  positions.clear();
+}
+
+void ofApp::turtlePenDown() {
+  positions.clear();
+  storeTurtlePos();
 }

@@ -35,7 +35,9 @@ class ofApp : public ofBaseApp{
     void turtleRight(float degrees);
     void turtleLeft(float degrees);
     void turtleScale(float scale);
-    
+    void turtlePenUp();
+    void turtlePenDown();
+  
     // internal
     void drawTurtleShape();
     void storeTurtlePos();
