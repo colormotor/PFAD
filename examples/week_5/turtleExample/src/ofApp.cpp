@@ -17,25 +17,22 @@ void ofApp::drawTurtleShape(){
   /// This can be literally anything :)
   /// But keep in mind drawing around the origin (0, 0)
   // Draw x and y axes
+  float size = 40;
   ofNoFill();
-  ofSetColor(255, 128);
-  ofDrawCircle(0, 0, 70);
-//  float size = 40;
-//  ofNoFill();
-//  ofSetColor(255, 0, 0);
-//  ofDrawLine(0, 0, size, 0);
-//  ofSetColor(0, 255, 0);
-//  ofDrawLine(0, 0, 0, size);
-//
-//  // Draw the turtle
-//  size = 10;
-//  ofFill();
-//  ofSetColor(255); //, 0, 0, 90);
-//  turtleTriangle(size);
-//  ofNoFill();
-//  ofSetLineWidth(3.0);
-//  ofSetColor(0);
-//  turtleTriangle(size);
+  ofSetColor(255, 0, 0);
+  ofDrawLine(0, 0, size, 0);
+  ofSetColor(0, 255, 0);
+  ofDrawLine(0, 0, 0, size);
+
+  // Draw the turtle
+  size = 10;
+  ofFill();
+  ofSetColor(255); //, 0, 0, 90);
+  turtleTriangle(size);
+  ofNoFill();
+  ofSetLineWidth(3.0);
+  ofSetColor(0);
+  turtleTriangle(size);
 }
 
 //--------------------------------------------------------------
@@ -56,6 +53,7 @@ void ofApp::draw(){
   turtleForward(90);
   
   // Explicit translations
+//  turtleReset(ofGetWidth()/2, ofGetHeight()/2);
 //  drawTurtle();
 //  ofTranslate(100, 0);
 //  drawTurtle();
@@ -63,6 +61,13 @@ void ofApp::draw(){
 //  drawTurtle();
 //  ofTranslate(100, 0);
 //  drawTurtle();
+//  ofTranslate(100, 0);
+//  drawTurtle();
+//  ofRotateDeg(45);
+//  drawTurtle();
+//  ofTranslate(90, 0);
+//  drawTurtle();
+//
   // End demo code
   
   // This code uses the turtle functions with
