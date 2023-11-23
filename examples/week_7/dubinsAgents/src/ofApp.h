@@ -1,23 +1,9 @@
 #pragma once
 
 #include "ofMain.h"
+#include "Agent.h"
 
 using namespace glm;
-
-struct Agent {
-  Agent(float x, float y);
-  void update(float dt);
-  void draw();
-  
-  vector<vec2> trail;
-  vec2 target;
-  vec2 pos;
-  float angle;
-  int trailIndex;
-  float speed;
-  float turningRadius;
-  int trailLength;
-};
 
 class ofApp : public ofBaseApp{
 
