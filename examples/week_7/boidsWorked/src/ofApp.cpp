@@ -33,22 +33,22 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
   for(int i = 0; i < boids.size(); i++){
-    boids[i].update(boids,
-                    105,
-                    0.15,
-                    0.01,
-                    0.3,
-                    50,
-                    10,
-                    0.02);
 //    boids[i].update(boids,
-//                    speedlimit,
-//                    separation,
-//                    cohesion,
-//                    alignment,
-//                    checkdist,
-//                    radius,
-//                    bounce);
+//                    105,
+//                    0.15,
+//                    0.01,
+//                    0.3,
+//                    50,
+//                    10,
+//                    0.02);
+    boids[i].update(boids,
+                    speedlimit,
+                    separation,
+                    cohesion,
+                    alignment,
+                    checkdist,
+                    bounce,
+                    0.02);
   }
 }
 
