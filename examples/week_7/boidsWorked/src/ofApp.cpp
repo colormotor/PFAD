@@ -23,7 +23,7 @@ void ofApp::setup(){
   gui.add(radius.setup("radius",500,50,600));
   gui.add(bounce.setup("edge bounciness",10,0.1,100));
       
-  for(int i = 0; i < 10; i++){
+  for(int i = 0; i < 400; i++){
     vec2 pos = vec2(ofRandom(0,ofGetWidth()),
                     ofRandom(0,ofGetHeight()));
     boids.push_back(Boid(i, pos, ofColor(0, 200)));

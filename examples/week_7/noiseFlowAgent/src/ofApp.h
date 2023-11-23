@@ -1,33 +1,9 @@
 #pragma once
 
 #include "ofMain.h"
+#include "Agent.h"
 
 using namespace glm;
-
-struct Agent {
-  Agent(const vec2& pos_, const ofColor& color_);
-  void update(float dt);
-  void draw();
-  void updateTrail(const vec2& pos);
-  void drawTrail();
-  vec2 steerForce(const vec2& desiredVelocity);
-  void wrapBounds();
-  void drawFlowField();
-  
-  vector<vec2> trail;
-  int trailLength;
-  int trailIndex;
-  
-  vec2 target;
-  vec2 pos;
-  vec2 velocity;
-  ofColor color;
-
-  static float t;
-  static float maxSpeed;
-  static float maxForce;
-  static float noiseScale;
-};
 
 class ofApp : public ofBaseApp{
 	public:
