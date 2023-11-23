@@ -2,42 +2,9 @@
 
 #include "ofMain.h"
 #include "ofxGui.h"
+#include "Boid.h"
 
 using namespace glm;
-
-class Boid{
-public:
-    Boid(int index_, const vec2& pos_, const ofColor& color_);
-    
-    void draw();
-    void update(const vector<Boid>& boids, //vector<Boid> boids, //const vector<Boid>& boids,const vector<Boid>& boids,
-                float speedlimit,
-                float separationFactor,
-                float cohesionFactor,
-                float alignmentFactor,
-                float checkdist,
-                float bouncespeed,
-                float dt);
-  
-  
-private:
-    void checkBoundary(float speed);
-//    void separation(const vector<Boid>& boids, float factor);
-//    void cohesion(const vector<Boid>& boids, float factor);
-//    void alignment(const vector<Boid>& boid, float factor);
-//  
-    void flock(const vector<Boid>& boids, //vector<Boid> boids, //const vector<Boid>& boids,const vector<Boid>& boids,
-               float separationFactor,
-               float cohesionFactor,
-               float alignmentFactor,
-               float checkdist);
-    
-    vec2 velocity;
-    vec2 position;
-    float distToCheck;
-    ofColor color;
-    int index;
-};
 
 class ofApp : public ofBaseApp{
 	public:
@@ -58,18 +25,5 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h) override;
 		void dragEvent(ofDragInfo dragInfo) override;
 		void gotMessage(ofMessage msg) override;
-		
-    vector<Boid> boids;
   
-    //Gui
-    ofxPanel gui;
-
-    ofxFloatSlider speedlimit;
-    ofxFloatSlider separation;
-    ofxFloatSlider cohesion;
-    ofxFloatSlider alignment;
-
-    ofxFloatSlider radius;
-    ofxFloatSlider checkdist;
-    ofxFloatSlider bounce;
 };
