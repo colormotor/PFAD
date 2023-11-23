@@ -9,7 +9,7 @@ Boid::Boid(int index_, const vec2& pos_, const ofColor& color_){
 }
 
 //--------------------------------------------------------------
-void Boid::update(const vector<Boid>& boids, //vector<Boid> boids, //const vector<Boid>& boids,
+void Boid::update(vector<Boid> boids,
                   float speedlimit,
                   float separationFactor,
                   float cohesionFactor,
@@ -51,7 +51,7 @@ void Boid::draw(){
   ofPopMatrix();
 }
 
-void Boid::flock(const vector<Boid>& boids, //vector<Boid> boids, //const vector<Boid>& boids,
+void Boid::flock(vector<Boid> boids,
                  float separationFactor,
                  float cohesionFactor,
                  float alignmentFactor,
