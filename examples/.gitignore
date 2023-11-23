@@ -3,7 +3,8 @@
 *.log
 tmp/
 
-# Makefile
+Makefile
+addons.make
 of.entitlements
 config.make
 *.plist
