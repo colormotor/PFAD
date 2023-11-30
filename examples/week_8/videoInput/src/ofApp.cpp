@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-  // We don't need the full resolution here
+  // We don't necessarily need the full resolution here
   vidGrabber.setup(ofGetWidth(), ofGetHeight());
 }
 
@@ -16,6 +16,7 @@ void ofApp::draw(){
   if (!showEffect) {
     ofSetColor(255);
     vidGrabber.draw(0, 0, ofGetWidth(), ofGetHeight());
+
   } else {
     // Replace the contents of this "else" block with your code
     ofPushMatrix();

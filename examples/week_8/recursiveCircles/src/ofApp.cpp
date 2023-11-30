@@ -22,6 +22,15 @@ void drawRecursive(const vec2& pos, float radius, float rotation, float hue) {
 
 }
 
+void recursive(int n) {
+  cout << "my input is " << n << endl;
+  if (n >= 0) {
+    recursive(n-1);
+  }
+}
+
+
+
 //--------------------------------------------------------------
 void ofApp::setup(){
 
