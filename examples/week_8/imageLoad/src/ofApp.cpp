@@ -5,7 +5,7 @@
 void ofApp::setup(){
   
   ofImageLoadSettings settings;
-  settings.grayscale = true;
+  settings.grayscale = false;
   image.load("spock.jpg", settings);
 
   ofSetWindowShape(image.getWidth(), image.getHeight());
@@ -22,7 +22,7 @@ void ofApp::draw(){
   image.draw(0, 0, ofGetWidth(), ofGetHeight());
   
   int x = ofMap(mouseX, 0, ofGetWidth(), 0, image.getWidth()-1, true);
-  int y = ofMap(mouseX, 0, ofGetWidth(), 0, image.getWidth()-1, true);
+  int y = ofMap(mouseY, 0, ofGetHeight(), 0, image.getHeight()-1, true);
   
   ofPixels &px = image.getPixels();
   ofColor clr = px.getColor(x, y);
