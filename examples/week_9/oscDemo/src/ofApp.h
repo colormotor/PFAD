@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "ofxOsc.h"
 
+// OPEN "osc_example.maxpat" in Max MSP to test this
 class ofApp : public ofBaseApp{
 
 	public:
