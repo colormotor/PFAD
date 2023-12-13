@@ -33,7 +33,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-  int n = numY*numX;
+  const int n = numY*numX;
   vec2 gridPoints[n];
   
   ofSetColor(255);
